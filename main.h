@@ -28,7 +28,7 @@ extern char **environ;
  * @status: last status of the shell
  * @counter: lines counter
  * @_environ: environment variable
- * @pif: process ID of the shell
+ * @pid: process ID of the shell
  */
 typedef struct data
 {
@@ -43,10 +43,10 @@ typedef struct data
 data_shell;
 
 /**
- * struct sep_lists_s - single linked list
+ * struct sep_list_s - single linked list
  * @seperator: ; | &
  * @next: next node
- * Description: singlr linked list to store seperators
+ * Description: singly linked list to store seperators
  */
 typedef struct sep_list_s
 {
@@ -90,7 +90,7 @@ r_var;
  * @name: The name of the command builtin i.e cd, exit, env
  * @f: data type pointer function.
  */
-typedef struct builin_s
+typedef struct builtin_s
 {
 	char *name;
 	int (*f)(data_shell *datash);
@@ -111,7 +111,8 @@ void free_rvar_list(r_var **head);
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
-char *_strspn(char *s, char *accept);
+char *_strchr(char *s, char c);
+int _strspn(char *s, char *accept);
 
 /* aux_mem.c */
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
@@ -123,7 +124,7 @@ char *_strdup(const char *s);
 int _strlen(const char *s);
 int cmp_chars(char str[], const char *delim);
 char *_strtok(char str[], const char *delim);
-int _isdigit(const *s);
+int _isdigit(const char *s);
 
 /* aux_str3.c */
 void rev_string(char *s);
