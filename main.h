@@ -39,8 +39,7 @@ typedef struct data
 	int counter;
 	char **_environ;
 	char *pid;
-}
-data_shell;
+} data_shell;
 
 /**
  * struct sep_list_s - single linked list
@@ -52,8 +51,7 @@ typedef struct sep_list_s
 {
 	char seperator;
 	struct sep_list_s *next;
-}
-sep_list;
+} sep_list;
 
 /**
  * struct line_list_s - single linked list
@@ -65,8 +63,7 @@ typedef struct line_list_s
 {
 	char *line;
 	struct line_list_s *next;
-}
-line_list;
+} line_list;
 
 /**
  * struct r_var_list - single linked list
@@ -82,8 +79,7 @@ typedef struct r_var_list
 	char *val;
 	int len_val;
 	struct r_var_list *next;
-}
-r_var;
+} r_var;
 
 /**
  * struct builtin_s - Builtin struct for command args.
@@ -94,8 +90,7 @@ typedef struct builtin_s
 {
 	char *name;
 	int (*f)(data_shell *datash);
-}
-builtin_t;
+} builtin_t;
 
 /* aux_lists.c */
 sep_list *add_sep_node_end(sep_list **head, char sep);
@@ -137,11 +132,15 @@ void print_syntax_error(data_shell *datash, char *input, int i, int bool);
 int check_syntax_error(data_shell *datash, char *input);
 
 /* shell_loop.c */
+char *without_comment(char *in);
+void shell_loop(data_shell *datash);
+
+/* read_line.c */
 char *read_line(int *i_eof);
 
 /* split.c */
 char *swp_char(char *input, int bool);
-void add_notdes(sep_list **head_s, line_list **head_l, char *input);
+void add_nodes(sep_list **head_s, line_list **head_l, char *input);
 void go_next(sep_list **list_s, line_list **list_l, data_shell *datash);
 int split_commands(data_shell *datash, char *input);
 char **split_line(char *input);
@@ -165,6 +164,7 @@ char *_which(char *cmd, char **_environ);
 int is_executable(data_shell *datash);
 int check_error_cmd(char *dir, data_shell *datash);
 int cmd_exec(data_shell *datash);
+
 /* env1.c */
 char *_getenv(const char *name, char **_environ);
 int _env(data_shell *datash);
@@ -208,6 +208,7 @@ char *error_syntax(char **args);
 char *error_permission(char **args);
 char *error_path_126(data_shell *datash);
 
+
 /* get_error.c */
 int get_error(data_shell *datash, int eval);
 
@@ -230,4 +231,3 @@ void aux_help_cd(void);
 int get_help(data_shell *datash);
 
 #endif
-
