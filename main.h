@@ -172,7 +172,7 @@ int _env(data_shell *datash);
 /* env2.c */
 char *copy_info(char *name, char *value);
 void set_env(char *name, char *value, data_shell *datash);
-int _sentenv(data_shell *datash);
+int _setenv(data_shell *datash);
 int _unsetenv(data_shell *datash);
 
 /* cd.c */
@@ -183,6 +183,9 @@ void cd_to_home(data_shell *datash);
 
 /* cd_shell.c */
 int cd_shell(data_shell *datash);
+
+/* get_builtin */
+int (*get_builtin(char *cmd))(data_shell *datash);
 
 /* _exit.c */
 int exit_shell(data_shell *datash);
@@ -213,8 +216,8 @@ void get_sigint(int sig);
 
 /* aux_help.c */
 void aux_help_env(void);
-void aux_help_sentev(void);
-void aux_help_unsentec(void);
+void aux_help_setenv(void);
+void aux_help_unsetenv(void);
 void aux_help_general(void);
 void aux_help_exit(void);
 

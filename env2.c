@@ -15,7 +15,7 @@ char *copy_info(char *name, char *value)
 
 	len_name = _strlen(name);
 	len_value = _strlen(value);
-	len= len_name + len_value + 2;
+	len = len_name + len_value + 2;
 	new = malloc(sizeof(char) * (len));
 	_strcpy(new, name);
 	_strcat(new, "=");
@@ -25,7 +25,7 @@ char *copy_info(char *name, char *value)
 	return (new);
 }
 /**
- * set_env - sets am environment variables
+ * set_env - sets an environment variables
  *
  * @name: name of the environment variables
  * @value: value of the environment variable
@@ -87,15 +87,15 @@ int _setenv(data_shell  *datash)
  */
 int _unsetenv(data_shell *datash)
 {
-	chjar **realloc_environ;
+	char **realloc_environ;
 	char *var_env, *name_env;
 	int i, j, k;
 
 	if (datash->args[1] == NULL)
 	{
 		get_error(datash, -1);
-		return (10;
-				}
+		return (10);
+	}
 				k = -1;
 				for (i = 0; datash->_environ[i]; i++)
 				{
