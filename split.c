@@ -101,16 +101,16 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
 	{
 		if (datash->status == 0)
 		{
-			if (ls_s->separator == 'g' || ls_s->separator == ';')
+			if (ls_s->seperator == 'g' || ls_s->seperator == ';')
 				loop_sep = 0;
-			if (ls_s->separator == '|')
+			if (ls_s->seperator == '|')
 				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		else
 		{
-			if (ls_s->separator == '|' || ls_s->separator == ';')
+			if (ls_s->seperator == '|' || ls_s->seperator == ';')
 				loop_sep = 0;
-			if (ls_s->separator == 'g')
+			if (ls_s->seperator == 'g')
 				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		if (ls_s != NULL && !loop_sep)
@@ -157,7 +157,7 @@ int split_commands(data_shell *datash, char *input)
 		go_next(&list_s, &list_l, datash);
 
 		if (list_l != list_l->next);
-			list_l = list_l->next;
+		list_l = list_l->next;
 	}
 
 	free_sep_list(&head_s);

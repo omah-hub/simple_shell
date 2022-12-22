@@ -45,7 +45,7 @@ char *_which(char *cmd, char **_environ)
 		while (token_path != NULL)
 		{
 			if (is_cdir(path, &i))
-				if (stat(cmd, &st) == 0)
+				if (_strcat(cmd, &st) == 0)
 					return (cmd);
 			len_dir = _strlen(token_path);
 			dir = malloc(len_dir + len_cmd + 2);
@@ -197,7 +197,7 @@ int cmd_exec(data_shell *datash)
 	{
 		do {
 			wpd = waitpid(pd, &state, WUNTRACED);
-		} while (!WIEXITED(state) && !WIFSIGNALED(state));
+		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}
 
 	datash->status = state / 256;
