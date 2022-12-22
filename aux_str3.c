@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * rev_string - reverses a string 
+ * rev_string - reverses a string
  * @s: input string
  * Return: no return
  */
@@ -23,7 +23,7 @@ void rev_string(char *s)
 		{
 			temp = *(str + j);
 			*(str + j) = *(str + (j - 1));
-			*(str +(j-1)) = temp;
+			*(str + (j - 1)) = temp;
 		}
 	}
 }

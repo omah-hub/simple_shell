@@ -53,7 +53,7 @@ void set_data(data_shell *datash, char **av)
 /**
  * main -Entry point
  *
- * @c: argument count
+ * @ac: argument count
  * @av: argument vector
  *
  * Return: 0 on success.
