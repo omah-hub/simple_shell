@@ -43,9 +43,10 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
  * @datash: data relevant (directory)
  * Return: Error message
  */
-const char *error_get_cd(data_shell *datash)
+char *error_get_cd(data_shell *datash)
 {
-	int length, int len_id;
+	int length;
+	int len_id;
 	char *error, *ver_str, *msg;
 
 	ver_str = aux_itoa(datash->counter);
